@@ -20,13 +20,12 @@ const parser = csv.parse((error, data) => {
     })
 })
 
-
 app.get("/address", function(req, res, next){
     addresscode = req.query.code;
     fs.createReadStream(__dirname + '/38EHIME.CSV')
     .pipe(iconv.decodeStream('shift_jis'))
     .pipe(parser);
     //console.log(parser.target);
-    //res.json(parser.target)
+    //res.json(parser.target);
 
 });
