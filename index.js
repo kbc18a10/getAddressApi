@@ -8,6 +8,10 @@ var server = app.listen(3000, function(){
     console.log("Node.js is listening to PORT:" + server.address().port);
 });
 
+app.get("/",function(req,res,next){
+    res.send("heroku");
+})
+
 app.get("/address", function(req, res, next){
     var code = req.query.code;
     fs.createReadStream(__dirname + '/38EHIME.CSV')
